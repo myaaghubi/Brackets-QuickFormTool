@@ -1,4 +1,6 @@
 Brackets-ProFormTool
 ====================
 
-Brackets extension to insert form elements automatically into editor
+An extension for Adobe Brackets to insert form elements into editor.<br>
+This extension currently not available for use so is incompletely.
+
