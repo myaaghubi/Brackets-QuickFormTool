@@ -5,14 +5,33 @@
 define(function (require, exports, module)
 {
     "use strict";
-	
+
 	var EditorManager = brackets.getModule("editor/EditorManager"),
-        InlineWidget = brackets.getModule("editor/InlineWidget").InlineWidget;
+        InlineWidget = brackets.getModule("editor/InlineWidget").InlineWidget,
+        Strings = brackets.getModule("strings"),
+        ProFormToolTemplate = require("text!ProFormToolTemplate.html");
 
     function ProFormTool()
     {
         InlineWidget.call(this);
     }
+	
+	ProFormTool.prototype = Object.create(InlineWidget.prototype);
+    ProFormTool.prototype.parentClass = InlineWidget.prototype;
+
+    ProFormTool.prototype.load = function ()
+    {
+        ProFormTool.prototype.parentClass.load.apply(this, arguments);
+        this.$element = $(Mustache.render(ProFormToolTemplate, Strings));
+        this.$htmlContent.append(this.$element);
+    };
+
+    ProFormTool.prototype.onAdded = function ()
+    {
+        this.hostEditor.setInlineWidgetHeight(this, this.FormContent.getRootElement().outerHeight(), true);
+        this.FormContent.focus();
+    };
+
 
     function proFormToolProvider(hostEditor, pos)
     {
