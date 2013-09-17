@@ -1,6 +1,7 @@
-//ProFormTool ver 0.1
+//ProFormTool ver 0.5
 //An extension for https://github.com/adobe/brackets
 //This extension currently not available for use so is incompletely.
+//by M.Yaghobi, m.yaghobi.abc@gmail.com
 
 define(function (require, exports, module)
 {
@@ -29,7 +30,7 @@ define(function (require, exports, module)
 
     ProFormTool.prototype.onAdded = function ()
     {
-        this.hostEditor.setInlineWidgetHeight(this, this.FormContent.getRootElement().outerHeight(), true);
+        this.hostEditor.setinlineWidgetHeight(this, this.FormContent.getRootElement().outerHeight(), true);
         this.FormContent.focus();
     };
 
@@ -50,6 +51,5 @@ define(function (require, exports, module)
     
     ExtensionUtils.loadStyleSheet(module, "ui/main.css");
     EditorManager.registerInlineEditProvider(proFormToolProvider);
-
     exports.proFormToolProvider = proFormToolProvider;
 });
