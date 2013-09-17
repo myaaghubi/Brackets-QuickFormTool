@@ -1,0 +1,82 @@
+.pftblock
+{
+	float:left;
+	overflow:visible;
+	clear:both;
+    max-height:105px;
+}
+.pftblock:focus 
+{
+    outline: none;
+}
+.pftcountiner
+{
+	padding:0; 
+	margin:0;
+	float:left;
+    min-width:810px;
+}
+
+.pftcountiner ul
+{
+	text-align: left;
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+.pftcountiner ul li 
+{
+	font-size:12x;
+	font-weight:bold;
+	font-family:sans-serif;
+	display: inline-block;
+	margin-right: -4px;
+	padding: 4px 15px;
+	background: #fff;
+	cursor: pointer;
+	transition: all 0.2s;
+	float:left;
+	
+	border:1px rgba(85, 85, 85, 0.5) solid;
+	border-width:0 0 0 2px;
+}
+.pftcountiner ul li:hover 
+{
+	background: #555;
+	color: #fff;
+}
+.pftcountiner ul li ul 
+{
+	padding: 0;
+	margin:-1px 0 0 -2px;
+
+	display: block-inline;
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.2s;
+}
+.pftcountiner ul li ul li 
+{
+	border:0;
+	font-size:12px;
+	background: #fff; 
+	display: block; 
+	color: #555;
+	float:left;
+}
+.pftcountiner ul li:hover ul li 
+{
+	background: #555;
+	color:#fff;
+}
+.pftcountiner ul li ul li:hover
+{
+	background: #666;
+}
+.pftcountiner ul li:hover ul 
+{
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+
