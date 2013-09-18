@@ -1,4 +1,4 @@
-Brackets-ProFormTool
+Brackets-QuickFormTool
 ====================
 
 An extension for Adobe Brackets to insert form elements into editor.<br>
