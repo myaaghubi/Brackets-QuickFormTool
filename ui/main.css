@@ -1,15 +1,15 @@
-.pftblock
+.qftblock
 {
 	float:left;
 	overflow:visible;
 	clear:both;
     max-height:105px;
 }
-.pftblock:focus 
+.qftblock:focus 
 {
     outline: none;
 }
-.pftcountiner
+.qftcountiner
 {
 	padding:0; 
 	margin:0;
@@ -17,14 +17,14 @@
     min-width:810px;
 }
 
-.pftcountiner ul
+.qftcountiner ul
 {
 	text-align: left;
 	margin: 0;
 	padding:0;
 	list-style: none;
 }
-.pftcountiner ul li 
+.qftcountiner ul li 
 {
 	font-size:12x;
 	font-weight:bold;
@@ -40,12 +40,12 @@
 	border:1px rgba(85, 85, 85, 0.5) solid;
 	border-width:0 0 0 2px;
 }
-.pftcountiner ul li:hover 
+.qftcountiner ul li:hover 
 {
 	background: #555;
 	color: #fff;
 }
-.pftcountiner ul li ul 
+.qftcountiner ul li ul 
 {
 	padding: 0;
 	margin:-1px 0 0 -2px;
@@ -55,7 +55,7 @@
 	visibility: visible;
 	transition: opacity 0.2s;
 }
-.pftcountiner ul li ul li 
+.qftcountiner ul li ul li 
 {
 	border:0;
 	font-size:12px;
@@ -64,16 +64,16 @@
 	color: #555;
 	float:left;
 }
-.pftcountiner ul li:hover ul li 
+.qftcountiner ul li:hover ul li 
 {
 	background: #555;
 	color:#fff;
 }
-.pftcountiner ul li ul li:hover
+.qftcountiner ul li ul li:hover
 {
 	background: #666;
 }
-.pftcountiner ul li:hover ul 
+.qftcountiner ul li:hover ul 
 {
 	display: block;
 	opacity: 1;

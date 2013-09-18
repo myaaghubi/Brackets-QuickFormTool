@@ -1,4 +1,4 @@
-//ProFormTool ver 0.5
+//QuickFormTool ver 0.5
 //An extension for https://github.com/adobe/brackets
 //This extension currently not available for use so is incompletely.
 //by M.Yaghobi, m.yaghobi.abc@gmail.com
@@ -11,24 +11,24 @@ define(function (require, exports, module)
         ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
         InlineWidget = brackets.getModule("editor/InlineWidget").InlineWidget,
         Strings = brackets.getModule("strings"),
-        ProFormToolTemplate = require("text!ui/ProFormToolTemplate.html");
+        QuickFormToolTemplate = require("text!ui/QuickFormToolTemplate.html");
 
-    function ProFormTool()
+    function QuickFormTool()
     {
         InlineWidget.call(this);
     }
 
-    ProFormTool.prototype = Object.create(InlineWidget.prototype);
-    ProFormTool.prototype.parentClass = InlineWidget.prototype;
+    QuickFormTool.prototype = Object.create(InlineWidget.prototype);
+    QuickFormTool.prototype.parentClass = InlineWidget.prototype;
 
-    ProFormTool.prototype.load = function ()
+    QuickFormTool.prototype.load = function ()
     {
-        ProFormTool.prototype.parentClass.load.apply(this, arguments);
-        this.$element = $(Mustache.render(ProFormToolTemplate, Strings));
+        QuickFormTool.prototype.parentClass.load.apply(this, arguments);
+        this.$element = $(Mustache.render(QuickFormToolTemplate, Strings));
         this.$htmlContent.append(this.$element);
     };
 
-    ProFormTool.prototype.onAdded = function ()
+    QuickFormTool.prototype.onAdded = function ()
     {
         this.hostEditor.setinlineWidgetHeight(this, this.FormContent.getRootElement().outerHeight(), true);
         this.FormContent.focus();
@@ -36,20 +36,20 @@ define(function (require, exports, module)
 
     //----------------------------
 	
-    function proFormToolProvider(hostEditor, pos)
+    function quickFormToolProvider(hostEditor, pos)
     {
-        var proformtoolline, result, start, end;
+        var quickformtoolline, result, start, end;
         pos.ch = start;
         hostEditor.setSelection(pos, { line: pos.line, ch: end });
 
-        proformtoolline = new ProFormTool();
-        proformtoolline.load(hostEditor);
+        quickformtoolline = new QuickFormTool();
+        quickformtoolline.load(hostEditor);
         result = new $.Deferred();
-        result.resolve(proformtoolline);
+        result.resolve(quickformtoolline);
         return result.promise();
     }
     
     ExtensionUtils.loadStyleSheet(module, "ui/main.css");
-    EditorManager.registerInlineEditProvider(proFormToolProvider);
-    exports.proFormToolProvider = proFormToolProvider;
+    EditorManager.registerInlineEditProvider(quickFormToolProvider);
+    exports.quickFormToolProvider = quickFormToolProvider;
 });
