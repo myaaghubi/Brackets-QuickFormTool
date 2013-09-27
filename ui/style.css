@@ -1,79 +1,69 @@
 .qftblock
 {
-	float:left;
-	overflow:visible;
-	clear:both;
-    max-height:105px;
+	height:30px;
+	margin:0;
+	padding:0;
+
+	background-color:#5d5f60;
 }
 .qftblock:focus 
 {
     outline: none;
 }
-.qftcountiner
-{
-	padding:0; 
-	margin:0;
-	float:left;
-    min-width:810px;
-}
 
-.qftcountiner ul
+.qftblock ul
 {
 	text-align: left;
 	margin: 0;
 	padding:0;
+	width:100%;
 	list-style: none;
+	padding:1px 0 0 0;
+	clear:both;
 }
-.qftcountiner ul li 
+.qftblock ul li 
 {
-	font-size:12x;
-	font-weight:bold;
-	font-family:sans-serif;
 	display: inline-block;
-	margin-right: -4px;
-	padding: 4px 15px;
-	background: #fff;
 	cursor: pointer;
 	transition: all 0.2s;
 	float:left;
-	
+	color: #fff;
 	border:1px rgba(85, 85, 85, 0.5) solid;
 	border-width:0 0 0 2px;
 }
-.qftcountiner ul li:hover 
+.qftblock ul li:hover 
 {
 	background: #555;
 	color: #fff;
 }
-.qftcountiner ul li ul 
+.qftblock ul li ul 
 {
 	padding: 0;
-	margin:-1px 0 0 -2px;
 
 	display: block-inline;
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 0.2s;
 }
-.qftcountiner ul li ul li 
+.qftblock ul li ul li 
 {
 	border:0;
 	font-size:12px;
-	background: #fff; 
 	display: block; 
-	color: #555;
+	color: #fff;
 	float:left;
+	padding:5px 12px;
 }
-.qftcountiner ul li:hover ul li 
+.qftblock ul li:hover ul li 
 {
 	background: #555;
 	color:#fff;
 }
-.qftcountiner ul li ul li:hover
+.qftblock ul li ul li:hover
 {
 	background: #666;
 }
-.qftcountiner ul li:hover ul 
+.qftblock ul li:hover ul 
 {
 	display: block;
 	opacity: 1;

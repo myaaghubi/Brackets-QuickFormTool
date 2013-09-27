@@ -98,6 +98,6 @@ define(function (require, exports, module)
         }
 	};
 	
-    ExtensionUtils.loadStyleSheet(module, "ui/main.css");
+    ExtensionUtils.loadStyleSheet(module, "ui/style.css");
     exports.quickFormToolProvider = quickFormToolProvider;
 });
