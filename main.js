@@ -1,8 +1,8 @@
-//QuickFormTool ver 0.6 beta
+//QuickFormTool ver 0.65 beta 2
 //An extension for https://github.com/adobe/brackets
 //Last version of extension https://github.com/pgrammer/Brackets-QuickFormTool
 //This extension currently not available for use so is incompletely.
-//by Mohammad.Yaghobi, m.yaghobi.abc@gmail.com
+//by Mohammad.Yaghobi, PGrammer.com || m.yaghobi.abc@gmail.com
 
 define(function (require, exports, module)
 {

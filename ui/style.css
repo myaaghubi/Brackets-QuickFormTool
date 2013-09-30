@@ -1,9 +1,16 @@
+/*
+QuickFormTool ver 0.65 beta 2
+An extension for https://github.com/adobe/brackets
+Last version of extension https://github.com/pgrammer/Brackets-QuickFormTool
+This extension currently not available for use so is incompletely.
+by Mohammad.Yaghobi, PGrammer.com || m.yaghobi.abc@gmail.com
+*/
 .qftblock
 {
 	height:30px;
 	margin:0;
 	padding:0;
-
+	overflow:hidden;
 	background-color:#5d5f60;
 }
 .qftblock:focus 
@@ -16,7 +23,6 @@
 	text-align: left;
 	margin: 0;
 	padding:0;
-	width:100%;
 	list-style: none;
 	padding:1px 0 0 0;
 	clear:both;
@@ -33,7 +39,6 @@
 }
 .qftblock ul li:hover 
 {
-	background: #555;
 	color: #fff;
 }
 .qftblock ul li ul 
@@ -56,7 +61,6 @@
 }
 .qftblock ul li:hover ul li 
 {
-	background: #555;
 	color:#fff;
 }
 .qftblock ul li ul li:hover
