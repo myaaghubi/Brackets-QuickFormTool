@@ -50,43 +50,43 @@ define(function (require, exports, module)
 				switch (_class)
 				{
 					case "form":
-						htmlcode = "<form action='' method='get'></form>";
+						htmlcode = "<form action=\"\" method=\"get\"></form>";
 					break;
 					
 					case "textfield":
-						htmlcode = "<input name='' type='text' />";
+						htmlcode = "<input name=\"\" type=\"text\" />";
 					break;
 					
 					case "textarea":
-						htmlcode = "<textarea name='' cols='' rows=''></textarea>";
+						htmlcode = "<textarea name=\"\" cols=\"\" rows=\"\"></textarea>";
 					break;
 					
 					case "botton":
-						htmlcode = "<input name='' type='button' />";
+						htmlcode = "<input name=\"\" type=\"button\" />";
 					break;
 					
 					case "checkbox":
-						htmlcode = "<input name='' type='checkbox' value='' />";
+						htmlcode = "<input name=\"\" type=\"checkbox\" value=\"\" />";
 					break;
 					
 					case "radiobotton":
-						htmlcode = "<input name='' type='radio' value='' />";
+						htmlcode = "<input name=\"\" type=\"radio\" value=\"\" />";
 					break;
 					
 					case "listmenu":
-						htmlcode = "<select name=''></select>";
+						htmlcode = "<select name=\"\"></select>";
 					break;
 					
 					case "imagefield":
-						htmlcode = "<input name='' type='image' src='asd' align='middle' width='' height='' />";
+						htmlcode = "<input name=\"\" type=\"image\" src=\"asd\" align=\"middle\" width=\"\" height=\"\" />";
 					break;
 					
 					case "filefield":
-						htmlcode = "<input name='' type='file' />";
+						htmlcode = "<input name=\"\" type=\"file\" />";
 					break;
 					
 					case "hiddenfiled":
-						htmlcode = "<input name='' type='hidden' value='' />";
+						htmlcode = "<input name=\"\" type=\"hidden\" value=\"\" />";
 					break;
 				}
 				hosteditor.document.replaceRange(htmlcode, hosteditor.getCursorPos());
