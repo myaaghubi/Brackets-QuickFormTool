@@ -1,4 +1,4 @@
-//QuickFormTool ver 0.65 beta 2
+//QuickFormTool ver 0.8
 //An extension for https://github.com/adobe/brackets
 //Last version of extension https://github.com/pgrammer/Brackets-QuickFormTool
 //This extension currently not available for use so is incompletely.
@@ -22,9 +22,9 @@ define(function (require, exports, module)
             $element.find(".form").click(function () { quickFormTool("form"); });
 			$element.find(".textfield").click(function () { quickFormTool("textfield"); });
 			$element.find(".textarea").click(function () { quickFormTool("textarea"); });
-			$element.find(".botton").click(function () { quickFormTool("botton"); });
+			$element.find(".button").click(function () { quickFormTool("button"); });
 			$element.find(".checkbox").click(function () { quickFormTool("checkbox"); });
-			$element.find(".radiobotton").click(function () { quickFormTool("radiobotton"); });
+			$element.find(".radiobutton").click(function () { quickFormTool("radiobutton"); });
 			$element.find(".listmenu").click(function () { quickFormTool("listmenu"); });
 			$element.find(".imagefield").click(function () { quickFormTool("imagefield"); });
 			$element.find(".filefield").click(function () { quickFormTool("filefield"); });
@@ -61,7 +61,7 @@ define(function (require, exports, module)
 						htmlcode = "<textarea name=\"\" cols=\"\" rows=\"\"></textarea>";
 					break;
 					
-					case "botton":
+					case "button":
 						htmlcode = "<input name=\"\" type=\"button\" />";
 					break;
 					
@@ -69,7 +69,7 @@ define(function (require, exports, module)
 						htmlcode = "<input name=\"\" type=\"checkbox\" value=\"\" />";
 					break;
 					
-					case "radiobotton":
+					case "radiobutton":
 						htmlcode = "<input name=\"\" type=\"radio\" value=\"\" />";
 					break;
 					

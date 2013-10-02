@@ -1,7 +1,7 @@
-# QuickFormTool # ver 0.65 beta 2
+# QuickFormTool # ver 0.8
 
 An extension for Adobe Brackets to insert form elements into editor.<br>
-First utilizable version of this extension now available for download.<br>
+This extension now available for download.<br>
 
 ## Installation ##
 1. Run Brackets.<br>
