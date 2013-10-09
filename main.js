@@ -25,7 +25,7 @@ define(function (require, exports, module)
             $element.find(".listmenu").click(function () { quickFormTool("listmenu"); });
             $element.find(".imagefield").click(function () { quickFormTool("imagefield"); });
             $element.find(".filefield").click(function () { quickFormTool("filefield"); });
-            $element.find(".hiddenfiled").click(function () { quickFormTool("hiddenfiled"); });
+            $element.find(".hiddenfield").click(function () { quickFormTool("hiddenfield"); });
 
             $($element).insertBefore("#editor-holder");
         }
@@ -82,7 +82,7 @@ define(function (require, exports, module)
                         htmlcode = "<input name=\"\" type=\"file\" />";
                     break;
                     
-                    case "hiddenfiled":
+                    case "hiddenfield":
                         htmlcode = "<input name=\"\" type=\"hidden\" value=\"\" />";
                     break;
                 }
