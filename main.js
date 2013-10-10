@@ -4,15 +4,16 @@
 define(function (require, exports, module)
 {
     "use strict";
-    
+    //load modules and template
     var EditorManager        = brackets.getModule("editor/EditorManager"),
     ExtensionUtils           = brackets.getModule("utils/ExtensionUtils"),
     Strings                  = brackets.getModule("strings"),
     QuickFormToolTemplate    = require("text!ui/QuickFormToolTemplate.html");
 
-    
+    //set function to buttons
     function quickFormToolProvider()
     {
+        //if main.js load before template then $element.find() not work
         try
         {
             var $element = $(Mustache.render(QuickFormToolTemplate, Strings));
@@ -34,13 +35,19 @@ define(function (require, exports, module)
             alert("Error: " + e);
         }
     }
+	
+    //call quickFormToolProvider() when extension load
     var loadfunction = quickFormToolProvider();
+    
+    //do actions
     function quickFormTool(_class)
     {
         try
-    {
+        {
             EditorManager.focusEditor();
             var hosteditor = EditorManager.getFocusedEditor();
+			
+            //detect button
             if (hosteditor) 
             {
                 var htmlcode = "";
@@ -94,7 +101,8 @@ define(function (require, exports, module)
             alert("Error: " + e);
         }
     };
-    
+	
+    //load style for template
     ExtensionUtils.loadStyleSheet(module, "ui/style.css");
     exports.quickFormToolProvider = quickFormToolProvider;
 });
