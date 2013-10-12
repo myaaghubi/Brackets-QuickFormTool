@@ -43,6 +43,10 @@
 {
 	content:url(images/hiddenfield.png);
 }
+.qftblock .html5page img 
+{
+	content:url(images/html5page.png);
+}
 .qftblock
 {
 	height:30px;

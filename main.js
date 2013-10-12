@@ -4,16 +4,17 @@
 define(function (require, exports, module)
 {
     "use strict";
-    //load modules and template
+    
     var EditorManager        = brackets.getModule("editor/EditorManager"),
     ExtensionUtils           = brackets.getModule("utils/ExtensionUtils"),
     Strings                  = brackets.getModule("strings"),
+	DocumentManager          = brackets.getModule("document/DocumentManager"),
     QuickFormToolTemplate    = require("text!ui/QuickFormToolTemplate.html");
-
-    //set function to buttons
+    
+	var untitleddocumentindex = 1;
+	
     function quickFormToolProvider()
     {
-        //if main.js load before template then $element.find() not work
         try
         {
             var $element = $(Mustache.render(QuickFormToolTemplate, Strings));
@@ -27,6 +28,8 @@ define(function (require, exports, module)
             $element.find(".imagefield").click(function () { quickFormTool("imagefield"); });
             $element.find(".filefield").click(function () { quickFormTool("filefield"); });
             $element.find(".hiddenfield").click(function () { quickFormTool("hiddenfield"); });
+			
+			$element.find(".html5page").click(function () { quickFormTool("html5page"); });
 
             $($element).insertBefore("#editor-holder");
         }
@@ -35,20 +38,13 @@ define(function (require, exports, module)
             alert("Error: " + e);
         }
     }
-	
-    //call quickFormToolProvider() when extension load
     var loadfunction = quickFormToolProvider();
-    
-    //do actions
     function quickFormTool(_class)
     {
         try
-        {
-            EditorManager.focusEditor();
-            var hosteditor = EditorManager.getFocusedEditor();
-			
-            //detect button
-            if (hosteditor) 
+		{
+            
+            if (true) 
             {
                 var htmlcode = "";
                 switch (_class)
@@ -92,7 +88,16 @@ define(function (require, exports, module)
                     case "hiddenfield":
                         htmlcode = "<input name=\"\" type=\"hidden\" value=\"\" />";
                     break;
+					
+					case "html5page":
+					
+						handleFileNew();	
+						htmlcode = html5page;
+					
+                    break;
                 }
+				EditorManager.focusEditor();
+            var hosteditor = EditorManager.getFocusedEditor();
                 hosteditor.document.replaceRange(htmlcode, hosteditor.getCursorPos());
             }
         }
@@ -101,8 +106,16 @@ define(function (require, exports, module)
             alert("Error: " + e);
         }
     };
+	//maker new file. 
+    function handleFileNew() 
+	{
+        var doc = DocumentManager.createUntitledDocument(untitleddocumentindex++, ".html");
+        DocumentManager.setCurrentDocument(doc);
+        EditorManager.focusEditor();
+        return new $.Deferred().resolve(doc).promise();
+    }
+	var html5page = "<!doctype html>\n<html>\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>Untitled Document</title>\n\t\n</head>\n<body>\n\t\n\t\n\t\n</body>\n</html>";
 	
-    //load style for template
     ExtensionUtils.loadStyleSheet(module, "ui/style.css");
     exports.quickFormToolProvider = quickFormToolProvider;
 });
