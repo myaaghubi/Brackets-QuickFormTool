@@ -28,6 +28,7 @@ define(function (require, exports, module)
             $element.find(".imagefield").click(function () { quickFormTool("imagefield"); });
             $element.find(".filefield").click(function () { quickFormTool("filefield"); });
             $element.find(".hiddenfield").click(function () { quickFormTool("hiddenfield"); });
+			$element.find(".link").click(function () { quickFormTool("link"); });
 			
 			$element.find(".html5page").click(function () { quickFormTool("html5page"); });
 
@@ -87,6 +88,10 @@ define(function (require, exports, module)
                     
                     case "hiddenfield":
                         htmlcode = "<input name=\"\" type=\"hidden\" value=\"\" />";
+                    break;
+					
+					case "link":
+                        htmlcode = "<a href=\"\"></a>";
                     break;
 					
 					case "html5page":
