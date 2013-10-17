@@ -21,5 +21,5 @@ B:
 
 1. Click on `Download ZIP`.<br>
 2. Run Brackets.<br>
-3. Select _Help > Show Extension Folder_.<br>
-4. Extract downloaded file to it.
+3. Select _Help > Show Extension Folder_ then go to _/user_ folder<br>
+4. Now extract downloaded file here.
