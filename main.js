@@ -79,7 +79,7 @@ define(function (require, exports, module)
                     break;
                     
                     case "imagefield":
-                        htmlcode = "<input name=\"\" type=\"image\" src=\"asd\" align=\"middle\" width=\"\" height=\"\" />";
+                        htmlcode = "<input name=\"\" type=\"image\" src=\"\" align=\"middle\" width=\"\" height=\"\" />";
                     break;
                     
                     case "filefield":
