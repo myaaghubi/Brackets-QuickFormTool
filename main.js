@@ -18,19 +18,19 @@ define(function (require, exports, module)
         try
         {
             var $element = $(Mustache.render(QuickFormToolTemplate, Strings));
-            $element.find(".form").click(function () { quickFormTool("form"); });
-            $element.find(".textfield").click(function () { quickFormTool("textfield"); });
-            $element.find(".textarea").click(function () { quickFormTool("textarea"); });
-            $element.find(".button").click(function () { quickFormTool("button"); });
-            $element.find(".checkbox").click(function () { quickFormTool("checkbox"); });
-            $element.find(".radiobutton").click(function () { quickFormTool("radiobutton"); });
-            $element.find(".listmenu").click(function () { quickFormTool("listmenu"); });
-            $element.find(".imagefield").click(function () { quickFormTool("imagefield"); });
-            $element.find(".filefield").click(function () { quickFormTool("filefield"); });
-            $element.find(".hiddenfield").click(function () { quickFormTool("hiddenfield"); });
-			$element.find(".link").click(function () { quickFormTool("link"); });
+            $element.find(".qft-form").click(function () { quickFormTool("form"); });
+            $element.find(".qft-textfield").click(function () { quickFormTool("textfield"); });
+            $element.find(".qft-textarea").click(function () { quickFormTool("textarea"); });
+            $element.find(".qft-button").click(function () { quickFormTool("button"); });
+            $element.find(".qft-checkbox").click(function () { quickFormTool("checkbox"); });
+            $element.find(".qft-radiobutton").click(function () { quickFormTool("radiobutton"); });
+            $element.find(".qft-listmenu").click(function () { quickFormTool("listmenu"); });
+            $element.find(".qft-imagefield").click(function () { quickFormTool("imagefield"); });
+            $element.find(".qft-filefield").click(function () { quickFormTool("filefield"); });
+            $element.find(".qft-hiddenfield").click(function () { quickFormTool("hiddenfield"); });
+			$element.find(".qft-link").click(function () { quickFormTool("link"); });
 			
-			$element.find(".html5page").click(function () { quickFormTool("html5page"); });
+			$element.find(".qft-html5page").click(function () { quickFormTool("html5page"); });
 
             $($element).insertBefore("#editor-holder");
         }
@@ -111,7 +111,7 @@ define(function (require, exports, module)
             alert("Error: " + e);
         }
     };
-	//maker new file. 
+	//make new file. 
     function handleFileNew() 
 	{
         var doc = DocumentManager.createUntitledDocument(untitleddocumentindex++, ".html");

@@ -3,51 +3,51 @@
 	width:16px;
 	height:auto;
 }
-.qftblock .form img 
+.qftblock .qft-form img 
 {
 	content:url(images/form.png);
 }
-.qftblock .textfield img 
+.qftblock .qft-textfield img 
 {
 	content:url(images/textfield.png);
 }
-.qftblock .textarea img 
+.qftblock .qft-textarea img 
 {
 	content:url(images/textarea.png);
 }
-.qftblock .button img 
+.qftblock .qft-button img 
 {
 	content:url(images/button.png);
 }
-.qftblock .checkbox img 
+.qftblock .qft-checkbox img 
 {
 	content:url(images/checkbox.png);
 }
-.qftblock .radiobutton img 
+.qftblock .qft-radiobutton img 
 {
 	content:url(images/radiobutton.png);
 }
-.qftblock .listmenu img 
+.qftblock .qft-listmenu img 
 {
 	content:url(images/listmenu.png);
 }
-.qftblock .imagefield img 
+.qftblock .qft-imagefield img 
 {
 	content:url(images/imagefield.png);
 }
-.qftblock .filefield img 
+.qftblock .qft-filefield img 
 {
 	content:url(images/filefield.png);
 }
-.qftblock .hiddenfield img 
+.qftblock .qft-hiddenfield img 
 {
 	content:url(images/hiddenfield.png);
 }
-.qftblock .link img 
+.qftblock .qft-link img 
 {
 	content:url(images/link.png);
 }
-.qftblock .html5page img 
+.qftblock .qft-html5page img 
 {
 	content:url(images/html5page.png);
 }
