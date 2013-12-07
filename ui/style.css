@@ -98,12 +98,13 @@
 }
 .qftblock ul li ul li 
 {
+	margin:1px 0;
 	border:0;
 	font-size:12px;
 	display: block; 
 	color: #fff;
 	float:left;
-	padding:4px 10px;
+	padding:3px 10px 5px 10px;
 }
 .qftblock ul li:hover ul li 
 {
