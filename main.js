@@ -31,6 +31,7 @@ define(function (require, exports, module)
 			$element.find(".qft-link").click(function () { quickFormTool("link"); });
 			
 			$element.find(".qft-html5page").click(function () { quickFormTool("html5page"); });
+			$element.find(".qft-makecsslink").click(function () { quickFormTool("makecsslink"); });
 
             $($element).insertBefore("#editor-holder");
         }
@@ -98,6 +99,9 @@ define(function (require, exports, module)
 					
 						handleFileNew();	
 						htmlcode = html5page;
+						
+					case "makecsslink":
+						htmlcode="\n<link href=\"CssFile.css\" rel=\"stylesheet\" />\n";
 					
                     break;
                 }
