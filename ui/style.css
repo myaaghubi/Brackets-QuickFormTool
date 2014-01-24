@@ -51,6 +51,10 @@
 {
 	content:url(images/html5page.png);
 }
+.qftblock .qft-makecsslink img 
+{
+	content:url(images/makecsslink.png);
+}
 .qftblock
 {
 	height:30px;
