@@ -3,7 +3,7 @@
     "title": "QuickFormTool",
     "description": "Insert form elements quickly",
     "homepage": "https://github.com/pgrammer/Brackets-QuickFormTool",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "author": "Mohammad Yaghobi <m.yaghobi.abc@gmail.com> (http://www.pgrammer.com)",
     "license": "MIT",
     "engines": {
