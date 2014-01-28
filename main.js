@@ -32,6 +32,7 @@ define(function (require, exports, module)
 			
 			$element.find(".qft-html5page").click(function () { quickFormTool("html5page"); });
 			$element.find(".qft-makecsslink").click(function () { quickFormTool("makecsslink"); });
+			$element.find(".qft-makejavascripttag").click(function () { quickFormTool("makejavascripttag"); });
 
             $($element).insertBefore("#editor-holder");
         }
@@ -96,13 +97,16 @@ define(function (require, exports, module)
                     break;
 					
 					case "html5page":
-					
 						handleFileNew();	
 						htmlcode = html5page;
-						
-					case "makecsslink":
-						htmlcode="\n<link href=\"CssFile.css\" rel=\"stylesheet\" />\n";
+					break;
 					
+					case "makecsslink":
+						htmlcode="\n<link href=\"cssFile.css\" rel=\"stylesheet\" />";	
+					break;
+					
+					case "makejavascripttag":
+						htmlcode="\n<script src=\"javascriptFile.css\" type=\"text/javascript\"></script>";
                     break;
                 }
 				EditorManager.focusEditor();

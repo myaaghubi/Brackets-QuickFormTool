@@ -55,6 +55,10 @@
 {
 	content:url(images/makecsslink.png);
 }
+.qftblock .qft-makejavascripttag img 
+{
+	content:url(images/makejavascripttag.png);
+}
 .qftblock
 {
 	height:30px;
