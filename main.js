@@ -18,6 +18,7 @@ define(function (require, exports, module)
         try
         {
             var $element = $(Mustache.render(QuickFormToolTemplate, Strings));
+            
             $element.find(".qft-form").click(function () { quickFormTool("form"); });
             $element.find(".qft-textfield").click(function () { quickFormTool("textfield"); });
             $element.find(".qft-textarea").click(function () { quickFormTool("textarea"); });
@@ -32,7 +33,10 @@ define(function (require, exports, module)
 			
 			$element.find(".qft-html5page").click(function () { quickFormTool("html5page"); });
 			$element.find(".qft-makecsslink").click(function () { quickFormTool("makecsslink"); });
-			$element.find(".qft-makejavascripttag").click(function () { quickFormTool("makejavascripttag"); });
+			$element.find(".qft-makejavascripttag").click(function () { setPinUnpin(this.Text("tag")); });
+			
+			$element.find(".qft-pin").click(function () {$element.find(".qftblock").toggleClass("qftblock-exp");
+                                                         $element.find(".qft-pin").toggleClass("qft-unpin"); });
 
             $($element).insertBefore("#editor-holder");
         }
@@ -108,6 +112,7 @@ define(function (require, exports, module)
 					case "makejavascripttag":
 						htmlcode="\n<script src=\"javascriptFile.css\" type=\"text/javascript\"></script>";
                     break;
+
                 }
 				EditorManager.focusEditor();
             var hosteditor = EditorManager.getFocusedEditor();
