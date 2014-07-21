@@ -57,66 +57,49 @@ define(function (require, exports, module)
                 switch (_class)
                 {
                     case "form":
-                        htmlcode = "<form action=\"\" method=\"get\"></form>";
+                        handleCommand("<form action=\"\" method=\"get\"></form>");
                     break;
                     
                     case "textfield":
-                        htmlcode = "<input name=\"\" type=\"text\" />";
+                        handleCommand("<input name=\"\" type=\"text\" />");
                     break;
                     
                     case "textarea":
-                        htmlcode = "<textarea name=\"\" cols=\"\" rows=\"\"></textarea>";
+                        handleCommand("<textarea name=\"\" cols=\"\" rows=\"\"></textarea>");
                     break;
                     
                     case "button":
-                        htmlcode = "<input name=\"\" type=\"button\" />";
+                        handleCommand("<input name=\"\" type=\"button\" />");
                     break;
                     
                     case "checkbox":
-                        htmlcode = "<input name=\"\" type=\"checkbox\" value=\"\" />";
+                        handleCommand("<input name=\"\" type=\"checkbox\" value=\"\" />");
                     break;
                     
                     case "radiobutton":
-                        htmlcode = "<input name=\"\" type=\"radio\" value=\"\" />";
+                        handleCommand("<input name=\"\" type=\"radio\" value=\"\" />");
                     break;
                     
                     case "listmenu":
-                        htmlcode = "<select name=\"\"></select>";
+                        handleCommand("<select name=\"\"></select>");
                     break;
                     
                     case "imagefield":
-                        htmlcode = "<input name=\"\" type=\"image\" src=\"\" align=\"middle\" width=\"\" height=\"\" />";
+                        handleCommand("<input name=\"\" type=\"image\" src=\"\" align=\"middle\" width=\"\" height=\"\" />");
                     break;
                     
                     case "filefield":
-                        htmlcode = "<input name=\"\" type=\"file\" />";
+                        handleCommand("<input name=\"\" type=\"file\" />");
                     break;
                     
                     case "hiddenfield":
-                        htmlcode = "<input name=\"\" type=\"hidden\" value=\"\" />";
+                        handleCommand("<input name=\"\" type=\"hidden\" value=\"\" />");
                     break;
 					
 					case "link":
-                        htmlcode = "<a href=\"\"></a>";
+                        handleCommand("<a href=\"\"></a>");
                     break;
-					
-					case "html5page":
-						handleFileNew();	
-						htmlcode = html5page;
-					break;
-					
-					case "makecsslink":
-						htmlcode="\n<link href=\"cssFile.css\" rel=\"stylesheet\" />";	
-					break;
-					
-					case "makejavascripttag":
-						htmlcode="\n<script src=\"javascriptFile.css\" type=\"text/javascript\"></script>";
-                    break;
-
                 }
-				EditorManager.focusEditor();
-            var hosteditor = EditorManager.getFocusedEditor();
-                hosteditor.document.replaceRange(htmlcode, hosteditor.getCursorPos());
             }
         }
         catch(e)
@@ -131,6 +114,12 @@ define(function (require, exports, module)
         DocumentManager.setCurrentDocument(doc);
         EditorManager.focusEditor();
         return new $.Deferred().resolve(doc).promise();
+    }
+    function handleCommand(commandString)
+    {
+        EditorManager.focusEditor();
+        var hosteditor = EditorManager.getFocusedEditor();
+        hosteditor.document.replaceRange(commandString, hosteditor.getCursorPos());
     }
 	var html5page = "<!doctype html>\n<html>\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>Untitled Document</title>\n\t\n</head>\n<body>\n\t\n\t\n\t\n</body>\n</html>";
 	
