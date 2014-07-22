@@ -11,7 +11,9 @@ define(function (require, exports, module)
 	DocumentManager          = brackets.getModule("document/DocumentManager"),
     QuickFormToolTemplate    = require("text!ui/QuickFormToolTemplate.html");
     
-	var untitleddocumentindex = 1;
+	var untitledhtml5index = 1;
+    var untitledcssindex = 1;
+    var untitledjsindex = 1;
 	
     function quickFormToolProvider()
     {
@@ -31,12 +33,12 @@ define(function (require, exports, module)
             $element.find(".qft-hiddenfield").click(function () { quickFormTool("hiddenfield"); });
 			$element.find(".qft-link").click(function () { quickFormTool("link"); });
 			
-			$element.find(".qft-html5page").click(function () { quickFormTool("html5page"); });
-			$element.find(".qft-makecsslink").click(function () { quickFormTool("makecsslink"); });
-			$element.find(".qft-makejavascripttag").click(function () { setPinUnpin(this.Text("tag")); });
+			$element.find(".qft-html5file").click(function () { quickFormTool("html5file"); });
+			$element.find(".qft-cssfile").click(function () { quickFormTool("cssfile"); });
+			$element.find(".qft-jsfile").click(function () { quickFormTool("jsfile"); });
 			
-			$element.find(".qft-pin").click(function () {$element.find(".qftblock").toggleClass("qftblock-exp");
-                                                         $element.find(".qft-pin").toggleClass("qft-unpin"); });
+			$element.find(".qft-unpin").click(function () {$element.find(".qftblock").toggleClass("qftblock-exp");
+                                                         $element.find(".qft-unpin").toggleClass("qft-pin"); });
 
             $($element).insertBefore("#editor-holder");
         }
@@ -50,10 +52,8 @@ define(function (require, exports, module)
     {
         try
 		{
-            
             if (true) 
             {
-                var htmlcode = "";
                 switch (_class)
                 {
                     case "form":
@@ -99,6 +99,20 @@ define(function (require, exports, module)
 					case "link":
                         handleCommand("<a href=\"\"></a>");
                     break;
+					
+					case "html5file":
+                        var doc = DocumentManager.createUntitledDocument(untitledhtml5index++, ".html");
+						handleFileNew(doc);	
+						handleCommand(html5page);
+					break;
+					
+					case "cssfile":
+                        makeCSSFile();
+					break;
+					
+					case "jsfile":
+                        makeJSFile();
+                    break;
                 }
             }
         }
@@ -107,19 +121,34 @@ define(function (require, exports, module)
             alert("Error: " + e);
         }
     };
-	//make new file. 
-    function handleFileNew() 
-	{
-        var doc = DocumentManager.createUntitledDocument(untitleddocumentindex++, ".html");
-        DocumentManager.setCurrentDocument(doc);
-        EditorManager.focusEditor();
-        return new $.Deferred().resolve(doc).promise();
+    
+    function makeCSSFile()
+    {
+        var doc = DocumentManager.createUntitledDocument(untitledcssindex++, ".css");
+        handleCommand("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex + ".css\">");
+        handleFileNew(doc);
+        handleCommand("html\n{\n\t\n\}\n");	
+    }
+    function makeJSFile()
+    {
+        var doc = DocumentManager.createUntitledDocument(untitledjsindex++, ".js");
+        handleCommand("<script type=\"javascript\" src=\"Untitled-" + untitledjsindex + ".js\" />");
+        handleFileNew(doc);
+        handleCommand("");	
     }
     function handleCommand(commandString)
     {
         EditorManager.focusEditor();
         var hosteditor = EditorManager.getFocusedEditor();
         hosteditor.document.replaceRange(commandString, hosteditor.getCursorPos());
+    }
+	//make new file. 
+    function handleFileNew(docName)
+	{
+        var doc_ = docName;
+        DocumentManager.setCurrentDocument(doc_);
+        EditorManager.focusEditor();
+        return new $.Deferred().resolve(doc_).promise();
     }
 	var html5page = "<!doctype html>\n<html>\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>Untitled Document</title>\n\t\n</head>\n<body>\n\t\n\t\n\t\n</body>\n</html>";
 	
