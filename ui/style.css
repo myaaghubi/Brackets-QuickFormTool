@@ -2,11 +2,23 @@
 {
     padding: 0;
     margin: 0;
-    z-index: 500;
+    height: 0px;
+    overflow:visible;
+    position: relative;
+    background-color:#5d5f60;
+}
+.qftmainblock-exp
+{
+    height: 30px;
 }
 .qftmainblock img 
 {
 	width:16px;
+	height:auto;
+}
+.qftmainblock .qft-pages img 
+{
+	width:18px;
 	height:auto;
 }
 .qftmainblock .qft-form img 
@@ -53,48 +65,76 @@
 {
 	content:url(images/link.png);
 }
-.qftmainblock .qft-html5page img 
+.qftmainblock .qft-html5file img 
 {
-	content:url(images/html5page.png);
+	content:url(images/html5file.png);
 }
-.qftmainblock .qft-makecsslink img 
+.qftmainblock .qft-cssfile img 
 {
-	content:url(images/makecsslink.png);
+	content:url(images/cssfile.png);
 }
-.qftmainblock .qft-makejavascripttag img 
+.qftmainblock .qft-jsfile img 
 {
-	content:url(images/makejavascripttag.png);
-}
-.qftmainblock .qft-pin img 
-{
-	content:url(images/pin.png);
+	content:url(images/jsfile.png);
 }
 .qftmainblock .qft-unpin img 
 {
 	content:url(images/unpin.png);   
 }
+.qftmainblock .qft-pin img 
+{
+	content:url(images/pin.png);
+}
+.qftnotify
+{
+    position: absolute;
+    right: 20px;
+    background-color: #222222;
+    z-index: 4;
+    height: 30px;
+    width: 20px;
+}
 .qftblock
 {
-    height: 10px;
+    opacity: 0.8;
+    position:absolute;
+    top: 0;
+    right: 34px;
+    background: #444444 url(images/notify.png);
+    overflow:hidden;
+    z-index: 4;
+    min-height: 20px;
+    min-width: 23px;
 	margin:0;
 	padding:0;
-	overflow:hidden;
-	background-color:#5d5f60;
-	transition: height 0.3s;
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	-moz-transition: all 0.3s;
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-moz-transition: all 0.2s;
 	box-shadow: inset 0 -2px 3px 0 rgba(0, 0, 0, 0.3);
+    
+    border: 1px rgba(0, 0, 0, 0) solid;
+    border-radius: 0 0 5px 5px;
 }
+
 .qftblock-exp
 {
-	height:30px;
+    width:auto;
 	box-shadow: none;
+    right:12px;
+    opacity: 1;
+    border-radius: 0;
+    background-image: none;
 }
+
 .qftblock:hover
 {
-	height:30px;
+    right: 12px;
+    width:inherit;
 	box-shadow: none;
+    opacity: 1;
+    border-radius: 0;
+    background-image: none;
 }
 
 .qftmainblock ul
@@ -105,16 +145,22 @@
 	list-style: none;
 	padding:1px 0 0 0;
 	clear:both;
-    opacity: 0.6;
     transition: all 0.2s;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -o-transition: all 0.2s;
 }
-.qftmainblock:hover ul
+.qftblock ul
+{
+	display:none;
+}
+.qftblock:hover ul
 {
 	display:block;
-    opacity: 1;
+}
+.qftblock-exp ul
+{
+	display:block;
 }
 .qftmainblock ul li 
 {
@@ -149,6 +195,10 @@
 	float:left;
 	padding:3px 10px 5px 10px;
 }
+.qftmainblock ul .qft-pages ul li 
+{
+	padding:3px 9px 4px 9px;
+}
 .qftmainblock ul li:hover ul li 
 {
 	color:#fff;
@@ -168,6 +218,7 @@
 {
 	float:right;
     margin-right: 5px;
+    margin-left: 5px;
     border: 0;
 }
 .qftmainblock ul .qft-other ul li
