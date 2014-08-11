@@ -1,6 +1,3 @@
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets, window */
-
 define(function (require, exports, module)
 {
     "use strict";
@@ -36,8 +33,10 @@ define(function (require, exports, module)
 			$element.find(".qft-html5file").click(function () { quickFormTool("html5file"); });
 			$element.find(".qft-cssfile").click(function () { quickFormTool("cssfile"); });
 			$element.find(".qft-jsfile").click(function () { quickFormTool("jsfile"); });
-			
+			$element.find(".qftnotify").click(function () { $element.find(".qftblock").toggleClass("qftblock-exp");
+                                                            $element.find(".qftnotify").toggleClass("qftnotify-exp"); });
 			$element.find(".qft-unpin").click(function () {$element.find(".qftblock").toggleClass("qftblock-exp");
+                                                           
                                                          $element.find(".qft-unpin").toggleClass("qft-pin"); });
 
             $($element).insertBefore("#editor-holder");

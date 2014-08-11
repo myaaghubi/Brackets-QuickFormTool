@@ -90,23 +90,38 @@
     position: absolute;
     right: 20px;
     background-color: #222222;
-    z-index: 4;
-    height: 30px;
-    width: 20px;
+    background: #444444 url(images/notify-down.png) no-repeat center;
+    box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    margin: 0 0 -10px 0 ;
+    height: 14px;
+    width: 26px;
+    transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+    border-radius: 0 0 2px 2px;
+}
+.qftnotify-exp
+{
+    margin-top: 31px;
+    height: 13px;
+    box-shadow: inset 0 2px 8px 0 rgba(0, 0, 0, 1);
+    background: #444444 url(images/notify-up.png) no-repeat center;
 }
 .qftblock
 {
     opacity: 0.8;
     position:absolute;
     top: 0;
-    right: 34px;
-    background: #444444 url(images/notify.png);
+    right: 12px;
     overflow:hidden;
     z-index: 4;
-    min-height: 20px;
     min-width: 23px;
-	margin:0;
+    height: 0;
+	margin-top:-2px;
 	padding:0;
+    background: #444444;
 	transition: all 0.2s;
 	-webkit-transition: all 0.2s;
 	-o-transition: all 0.2s;
@@ -114,22 +129,25 @@
 	box-shadow: inset 0 -2px 3px 0 rgba(0, 0, 0, 0.3);
     
     border: 1px rgba(0, 0, 0, 0) solid;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 2px 2px;
 }
 
 .qftblock-exp
 {
     width:auto;
+    height: 30px;
 	box-shadow: none;
-    right:12px;
+    right:17px;
     opacity: 1;
+    margin-top: 0;
     border-radius: 0;
     background-image: none;
 }
 
 .qftblock:hover
 {
-    right: 12px;
+    right: 17px;
+    height: 30px;
     width:inherit;
 	box-shadow: none;
     opacity: 1;
@@ -152,7 +170,7 @@
 }
 .qftblock ul
 {
-	display:none;
+	display:;
 }
 .qftblock:hover ul
 {
