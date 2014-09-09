@@ -25,6 +25,7 @@ define(function (require, exports, module)
             $element.find(".qft-checkbox").click(function () { quickFormTool("checkbox"); });
             $element.find(".qft-radiobutton").click(function () { quickFormTool("radiobutton"); });
             $element.find(".qft-listmenu").click(function () { quickFormTool("listmenu"); });
+            $element.find(".qft-imagebutton").click(function () { quickFormTool("imagebutton"); });
             $element.find(".qft-imagefield").click(function () { quickFormTool("imagefield"); });
             $element.find(".qft-filefield").click(function () { quickFormTool("filefield"); });
             $element.find(".qft-hiddenfield").click(function () { quickFormTool("hiddenfield"); });
@@ -60,39 +61,43 @@ define(function (require, exports, module)
                     break;
                     
                     case "textfield":
-                        handleCommand("<input name=\"\" type=\"text\" />");
+                        handleCommand("<input type=\"text\" name=\"textfield\" size=\"25\" value=\"TextField\">");
                     break;
                     
                     case "textarea":
-                        handleCommand("<textarea name=\"\" cols=\"\" rows=\"\"></textarea>");
+                        handleCommand("<textarea name=\"\" cols=\"25\" rows=\"5\">TextArea</textarea>");
                     break;
                     
                     case "button":
-                        handleCommand("<input name=\"\" type=\"button\" />");
+                        handleCommand("<input type=\"button\" name=\"button\" value=\"Button\">");
                     break;
                     
                     case "checkbox":
-                        handleCommand("<input name=\"\" type=\"checkbox\" value=\"\" />");
+                        handleCommand("<input type=\"checkbox\" name=\"checkbox\" value=\"CheckBox\">");
                     break;
                     
                     case "radiobutton":
-                        handleCommand("<input name=\"\" type=\"radio\" value=\"\" />");
+                        handleCommand("<input type=\"radio\" name=\"radiogroup\" value=\"RadioButton\">");
                     break;
                     
                     case "listmenu":
-                        handleCommand("<select name=\"\"></select>");
+                        handleCommand("<select name=\"selectoptions\">\n\t<option value=\"option1\">Option 1</option>\n\t<option value=\"option2\">Option 2</option>\n</select>");
                     break;
                     
+                    case "imagebutton":
+                        handleCommand("<input type=\"image\" name=\"\" src=\"\" width=\"\" height=\"\">");
+                    break;
+                        
                     case "imagefield":
-                        handleCommand("<input name=\"\" type=\"image\" src=\"\" align=\"middle\" width=\"\" height=\"\" />");
+                        handleCommand("<img src=\"\" alt=\"\" width=\"\" height=\"\">");
                     break;
                     
                     case "filefield":
-                        handleCommand("<input name=\"\" type=\"file\" />");
+                        handleCommand("<input type=\"file\" name=\"filefield\">");
                     break;
                     
                     case "hiddenfield":
-                        handleCommand("<input name=\"\" type=\"hidden\" value=\"\" />");
+                        handleCommand("<input type=\"hidden\" name=\"hiddenfield\" value=\"hiddenfieldvalue\">");
                     break;
 					
 					case "link":

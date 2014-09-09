@@ -49,6 +49,10 @@
 {
 	content:url(images/listmenu.png);
 }
+.qftmainblock .qft-imagebutton img 
+{
+	content:url(images/imagebutton.png);
+}
 .qftmainblock .qft-imagefield img 
 {
 	content:url(images/imagefield.png);
