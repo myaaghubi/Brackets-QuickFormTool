@@ -21,7 +21,7 @@ B:
 1. Run Brackets.<br>
 2. Select _File > Install Manager_<br>
 3. Click on _Install from URL..._.
-4. Enter `https://github.com/pgrammer/Brackets-QuickFormTool` as _Extension URL_.<br>
+4. Enter `https://github.com/mohammadyaghobi/Brackets-QuickFormTool` as _Extension URL_.<br>
 5. Click on _Install_ to begin downloading and installing the extension.<br>
 <br>
 <b>OR</b>
