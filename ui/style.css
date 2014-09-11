@@ -69,6 +69,10 @@
 {
 	content:url(images/link.png);
 }
+.qftmainblock .qft-embedflash img 
+{
+	content:url(images/flashfile.png);
+}
 .qftmainblock .qft-html5file img 
 {
 	content:url(images/html5file.png);

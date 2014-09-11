@@ -31,6 +31,8 @@ define(function (require, exports, module)
             $element.find(".qft-hiddenfield").click(function () { quickFormTool("hiddenfield"); });
 			$element.find(".qft-link").click(function () { quickFormTool("link"); });
 			
+            $element.find(".qft-embedflash").click(function () { quickFormTool("embedflash"); });
+            
 			$element.find(".qft-html5file").click(function () { quickFormTool("html5file"); });
 			$element.find(".qft-cssfile").click(function () { quickFormTool("cssfile"); });
 			$element.find(".qft-jsfile").click(function () { quickFormTool("jsfile"); });
@@ -102,6 +104,10 @@ define(function (require, exports, module)
 					
 					case "link":
                         handleCommand("<a href=\"\"></a>");
+                    break;
+                        
+                    case "embedflash":
+                        handleCommand("<object data=\"flashfile.swf\" width=\"\" height=\"\"></object>");
                     break;
 					
 					case "html5file":
