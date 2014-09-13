@@ -5,7 +5,7 @@
     height: 0px;
     overflow:visible;
     position: relative;
-    background-color:#5d5f60;
+    background-color:#47484b;
 }
 .qftmainblock-exp
 {
@@ -98,8 +98,7 @@
     position: absolute;
     right: 20px;
     cursor:pointer;
-    background-color: #222222;
-    background: #444444 url(images/notify-down.png) no-repeat center;
+    background: #47484b url(images/notify-down.png) no-repeat center;
     box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.4);
     z-index: 2;
     margin: 0 0 -10px 0 ;
@@ -116,7 +115,7 @@
     margin-top: 31px;
     height: 13px;
     box-shadow: inset 0 2px 8px 0 rgba(0, 0, 0, 1);
-    background: #444444 url(images/notify-up.png) no-repeat center;
+    background: #47484b url(images/notify-up.png) no-repeat center;
 }
 .qftblock
 {
@@ -130,7 +129,7 @@
     height: 0;
 	margin-top:-2px;
 	padding:0;
-    background: #444444;
+    background: #47484b;
 	transition: all 0.2s;
 	-webkit-transition: all 0.2s;
 	-o-transition: all 0.2s;
@@ -149,7 +148,6 @@
     right:17px;
     opacity: 1;
     margin-top: 0;
-    border-radius: 0;
     background-image: none;
 }
 
@@ -196,8 +194,13 @@
 	transition: all 0.2s;
 	float:left;
 	color: #fff;
-	border:1px rgba(85, 85, 85, 0.5) solid;
+	border:1px rgba(85, 85, 85, 1) solid;
 	border-width:0 0 0 2px;
+}
+.qftmainblock ul li:first-child
+{
+	border:1px rgba(85, 85, 85, 0) solid;
+	border-width:0 0 0 1px;
 }
 
 .qftmainblock ul li:hover 
@@ -207,24 +210,24 @@
 .qftmainblock ul li ul 
 {
 	padding: 0;
-
+    margin: 0;
 	display: block-inline;
 	opacity: 1;
 	visibility: visible;
 }
 .qftmainblock ul li ul li 
 {
-	margin:1px 0;
+	margin:1px;
 	border:0;
 	font-size:12px;
 	display: block; 
 	color: #fff;
 	float:left;
-	padding:3px 10px 5px 10px;
+	padding:3px 11px 5px 11px;
 }
 .qftmainblock ul .qft-pages ul li 
 {
-	padding:3px 9px 4px 9px;
+	padding:3px 10px 4px 10px;
 }
 .qftmainblock ul li:hover ul li 
 {
@@ -244,8 +247,8 @@
 .qftmainblock ul .qft-other 
 {
 	float:right;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 1px;
+    margin-left: 0px;
     border: 0;
 }
 .qftmainblock ul .qft-other ul li

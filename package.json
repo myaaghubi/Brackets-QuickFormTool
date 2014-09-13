@@ -6,6 +6,10 @@
     "version": "2.3.0",
     "author": "Mohammad Yaghobi <m.yaghobi.abc@gmail.com> (http://www.pgrammer.com)",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mohammadyaghobi/brackets-quickformtool.git"
+    },
     "engines": {
         "brackets": ">=0.36.0"
     }
