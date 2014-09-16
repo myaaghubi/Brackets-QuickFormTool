@@ -31,6 +31,7 @@ define(function (require, exports, module)
             $element.find(".qft-hiddenfield").click(function () { quickFormTool("hiddenfield"); });
 			$element.find(".qft-link").click(function () { quickFormTool("link"); });
 			
+            $element.find(".qft-html5video").click(function () { quickFormTool("html5video"); });
             $element.find(".qft-embedflash").click(function () { quickFormTool("embedflash"); });
             
 			$element.find(".qft-html5file").click(function () { quickFormTool("html5file"); });
@@ -104,6 +105,10 @@ define(function (require, exports, module)
 					
 					case "link":
                         handleCommand("<a href=\"\"></a>");
+                    break;
+                        
+                    case "html5video":
+                        handleCommand("<video width=\"320\" height=\"240\" controls>\n<source src=\"movie.mp4\" type=\"video/mp4\">\n<source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.</video>");
                     break;
                         
                     case "embedflash":
