@@ -16,6 +16,7 @@ define(function (require, exports, module)
     {
         try
         {
+
             var $element = $(Mustache.render(QuickFormToolTemplate, Strings));
             
             $element.find(".qft-form").click(function () { quickFormTool("form"); });
@@ -31,7 +32,7 @@ define(function (require, exports, module)
             $element.find(".qft-hiddenfield").click(function () { quickFormTool("hiddenfield"); });
 			$element.find(".qft-link").click(function () { quickFormTool("link"); });
 			
-            $element.find(".qft-html5video").click(function () { quickFormTool("html5audio"); });
+            $element.find(".qft-html5audio").click(function () { quickFormTool("html5audio"); });
             $element.find(".qft-html5video").click(function () { quickFormTool("html5video"); });
             $element.find(".qft-embedflash").click(function () { quickFormTool("embedflash"); });
             
@@ -109,11 +110,11 @@ define(function (require, exports, module)
                     break;
                         
                     case "html5audio":
-                        handleCommand("<audio controls>\n<source src=\"audio.ogg\" type=\"audio/ogg\">\n<source src=\"audio.mp3\" type=\"audio/mpeg\"\nYour browser does not support the audio element.\n</audio> ");
+                        handleCommand("<audio controls>\n\t<source src=\"audio.ogg\" type=\"audio/ogg\">\n\t<source src=\"audio.mp3\" type=\"audio/mpeg\">\n\tYour browser does not support the audio element.\n</audio> ");
                     break;
                         
                     case "html5video":
-                        handleCommand("<video width=\"320\" height=\"240\" controls>\n<source src=\"movie.mp4\" type=\"video/mp4\">\n<source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.</video>");
+                        handleCommand("<video width=\"320\" height=\"240\" controls>\n\t<source src=\"movie.mp4\" type=\"video/mp4\">\n\t<source src=\"movie.ogg\" type=\"video/ogg\">\n\tYour browser does not support the video tag.\n</video>");
                     break;
                         
                     case "embedflash":
