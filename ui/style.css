@@ -69,6 +69,10 @@
 {
 	content:url(images/link.png);
 }
+.qftmainblock .qft-html5audio img 
+{
+	content:url(images/html5audio.png);
+}
 .qftmainblock .qft-html5video img 
 {
 	content:url(images/html5video.png);
