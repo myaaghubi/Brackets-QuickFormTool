@@ -159,9 +159,14 @@ define(function (require, exports, module)
     }
     function handleCommand(commandString)
     {
-        EditorManager.focusEditor();
-        var hosteditor = EditorManager.getFocusedEditor();
-        hosteditor.document.replaceRange(commandString, hosteditor.getCursorPos());
+        try
+        {
+            EditorManager.focusEditor();
+            var hosteditor = EditorManager.getFocusedEditor();
+
+            hosteditor.document.replaceRange(commandString, hosteditor.getCursorPos());
+        }
+        catch(err){}
     }
 	//make new file. 
     function handleFileNew(docName)
