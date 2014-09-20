@@ -2,8 +2,8 @@
     "name": "m.yaghobi.quickformtool",
     "title": "QuickFormTool",
     "description": "Insert form elements quickly",
-    "homepage": "https://github.com/pgrammer/Brackets-QuickFormTool",
-    "version": "2.5.1",
+    "homepage": "https://github.com/mohammadyaghobi/Brackets-QuickFormTool",
+    "version": "2.5.3",
     "author": "Mohammad Yaghobi <m.yaghobi.abc@gmail.com> (http://www.pgrammer.com)",
     "license": "MIT",
     "repository": {
@@ -12,5 +12,12 @@
     },
     "engines": {
         "brackets": ">=0.30.0"
-    }
+    },
+    "keywords": [
+        "form",
+        "element",
+        "html",
+        "tool",
+        "tag"
+    ]
 }
