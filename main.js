@@ -163,6 +163,12 @@ define(function (require, exports, module)
         {
             EditorManager.focusEditor();
             var hosteditor = EditorManager.getFocusedEditor();
+            var line = hosteditor.document.getLine(hosteditor.getCursorPos().line);
+            if (line.replace(/^\s+|\s+$/g, '').length>0)
+            {
+                var csIndent = line.match(/^\s{0,32}/)[0].length;
+                commandString = "\n" + new Array(csIndent+1).join(' ') +commandString;
+            }
 
             hosteditor.document.replaceRange(commandString, hosteditor.getCursorPos());
         }
