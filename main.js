@@ -145,15 +145,15 @@ define(function (require, exports, module)
     
     function makeCSSFile()
     {
-        var doc = DocumentManager.createUntitledDocument(untitledcssindex++, ".css");
-        handleCommand("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex + ".css\">");
+        var doc = DocumentManager.createUntitledDocument(untitledcssindex, ".css");
+        handleCommand("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex++ + ".css\">");
         handleFileNew(doc);
         handleCommand("html\n{\n\t\n\}\n");	
     }
     function makeJSFile()
     {
-        var doc = DocumentManager.createUntitledDocument(untitledjsindex++, ".js");
-        handleCommand("<script type=\"javascript\" src=\"Untitled-" + untitledjsindex + ".js\" />");
+        var doc = DocumentManager.createUntitledDocument(untitledjsindex, ".js");
+        handleCommand("<script type=\"javascript\" src=\"Untitled-" + untitledjsindex++ + ".js\" />");
         handleFileNew(doc);
         handleCommand("");	
     }
