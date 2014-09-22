@@ -62,69 +62,69 @@ define(function (require, exports, module)
                 switch (_class)
                 {
                     case "form":
-                        handleCommand("<form action=\"\" method=\"get\"></form>");
+                        handleText("<form action=\"\" method=\"get\"></form>");
                     break;
                     
                     case "textfield":
-                        handleCommand("<input type=\"text\" name=\"textfield\" size=\"25\" value=\"TextField\">");
+                        handleText("<input type=\"text\" name=\"textfield\" size=\"25\" value=\"TextField\">");
                     break;
                     
                     case "textarea":
-                        handleCommand("<textarea name=\"\" cols=\"25\" rows=\"5\">TextArea</textarea>");
+                        handleText("<textarea name=\"\" cols=\"25\" rows=\"5\">TextArea</textarea>");
                     break;
                     
                     case "button":
-                        handleCommand("<input type=\"button\" name=\"button\" value=\"Button\">");
+                        handleText("<input type=\"button\" name=\"button\" value=\"Button\">");
                     break;
                     
                     case "checkbox":
-                        handleCommand("<input type=\"checkbox\" name=\"checkbox\" value=\"CheckBox\">");
+                        handleText("<input type=\"checkbox\" name=\"checkbox\" value=\"CheckBox\">");
                     break;
                     
                     case "radiobutton":
-                        handleCommand("<input type=\"radio\" name=\"radiogroup\" value=\"RadioButton\">");
+                        handleText("<input type=\"radio\" name=\"radiogroup\" value=\"RadioButton\">");
                     break;
                     
                     case "listmenu":
-                        handleCommand("<select name=\"selectoptions\">\n\t<option value=\"option1\">Option 1</option>\n\t<option value=\"option2\">Option 2</option>\n</select>");
+                        handleText("<select name=\"selectoptions\">\n\t<option value=\"option1\">Option 1</option>\n\t<option value=\"option2\">Option 2</option>\n</select>");
                     break;
                     
                     case "imagebutton":
-                        handleCommand("<input type=\"image\" name=\"\" src=\"\" width=\"\" height=\"\">");
+                        handleText("<input type=\"image\" name=\"\" src=\"\" width=\"\" height=\"\">");
                     break;
                         
                     case "imagefield":
-                        handleCommand("<img src=\"\" alt=\"\" width=\"\" height=\"\">");
+                        handleText("<img src=\"\" alt=\"\" width=\"\" height=\"\">");
                     break;
                     
                     case "filefield":
-                        handleCommand("<input type=\"file\" name=\"filefield\">");
+                        handleText("<input type=\"file\" name=\"filefield\">");
                     break;
                     
                     case "hiddenfield":
-                        handleCommand("<input type=\"hidden\" name=\"hiddenfield\" value=\"hiddenfieldvalue\">");
+                        handleText("<input type=\"hidden\" name=\"hiddenfield\" value=\"hiddenfieldvalue\">");
                     break;
 					
 					case "link":
-                        handleCommand("<a href=\"\"></a>");
+                        handleText("<a href=\"\"></a>");
                     break;
                         
                     case "html5audio":
-                        handleCommand("<audio controls>\n\t<source src=\"audio.ogg\" type=\"audio/ogg\">\n\t<source src=\"audio.mp3\" type=\"audio/mpeg\">\n\tYour browser does not support the audio element.\n</audio> ");
+                        handleText("<audio controls>\n\t<source src=\"audio.ogg\" type=\"audio/ogg\">\n\t<source src=\"audio.mp3\" type=\"audio/mpeg\">\n\tYour browser does not support the audio element.\n</audio> ");
                     break;
                         
                     case "html5video":
-                        handleCommand("<video width=\"320\" height=\"240\" controls>\n\t<source src=\"movie.mp4\" type=\"video/mp4\">\n\t<source src=\"movie.ogg\" type=\"video/ogg\">\n\tYour browser does not support the video tag.\n</video>");
+                        handleText("<video width=\"320\" height=\"240\" controls>\n\t<source src=\"movie.mp4\" type=\"video/mp4\">\n\t<source src=\"movie.ogg\" type=\"video/ogg\">\n\tYour browser does not support the video tag.\n</video>");
                     break;
                         
                     case "embedflash":
-                        handleCommand("<object data=\"flashfile.swf\" width=\"\" height=\"\"></object>");
+                        handleText("<object data=\"flashfile.swf\" width=\"\" height=\"\"></object>");
                     break;
 					
 					case "html5file":
                         var doc = DocumentManager.createUntitledDocument(untitledhtml5index++, ".html");
 						handleFileNew(doc);	
-						handleCommand(html5page);
+						handleText(html5page);
 					break;
 					
 					case "cssfile":
@@ -146,18 +146,18 @@ define(function (require, exports, module)
     function makeCSSFile()
     {
         var doc = DocumentManager.createUntitledDocument(untitledcssindex, ".css");
-        handleCommand("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex++ + ".css\">");
+        handleTextToTag("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex++ + ".css\">", "html");
         handleFileNew(doc);
-        handleCommand("html\n{\n\t\n\}\n");	
+        handleText("html\n{\n\t\n\}\n");	
     }
     function makeJSFile()
     {
         var doc = DocumentManager.createUntitledDocument(untitledjsindex, ".js");
-        handleCommand("<script type=\"javascript\" src=\"Untitled-" + untitledjsindex++ + ".js\" />");
+        handleText("<script type=\"javascript\" src=\"Untitled-" + untitledjsindex++ + ".js\" />");
         handleFileNew(doc);
-        handleCommand("");	
+        handleText("");	
     }
-    function handleCommand(commandString)
+    function handleText(commandString)
     {
         try
         {
@@ -175,6 +175,24 @@ define(function (require, exports, module)
             hosteditor.document.replaceRange(commandString, hosteditor.getCursorPos());
         }
         catch(err){}
+    }
+    function handleTextToTag(text, tag)
+    {
+        try
+        {
+            var activeEditor = EditorManager.getActiveEditor(),
+            activeDoc = activeEditor && activeEditor.document,
+            fileFullPath = activeDoc.file.fullPath,
+            fileFullName = fileFullPath.substring(fileFullPath.lastIndexOf("/") + 1), 
+            fileFormat = fileFullName.substring(fileFullName.lastIndexOf(".") + 1);
+            
+            if (fileFormat == "html" || fileFormat == "htm")
+            {
+                EditorManager.focusEditor();
+                activeEditor.document.replaceRange(text, activeEditor.getCursorPos());
+            }
+        }
+        catch(err){alert("Error: "+err);}
     }
 	//make new file. 
     function handleFileNew(docName)
