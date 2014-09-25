@@ -146,7 +146,7 @@ define(function (require, exports, module)
     function makeCSSFile()
     {
         var doc = DocumentManager.createUntitledDocument(untitledcssindex, ".css");
-        handleTextToTag("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex++ + ".css\">", "html");
+        handleTextToTag("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex++ + ".css\">", "head");
         handleFileNew(doc);
         handleText("html\n{\n\t\n\}\n");	
     }
@@ -188,8 +188,10 @@ define(function (require, exports, module)
             
             if (fileFormat == "html" || fileFormat == "htm")
             {
-                EditorManager.focusEditor();
-                activeEditor.document.replaceRange(text, activeEditor.getCursorPos());
+                EditorManager.getFocusedEditor();
+                var getDocumentText_ = activeEditor.document.getText().replace("</" + tag + ">", "\t" + text + "\n</" + tag + ">");
+                activeEditor.document.setText(getDocumentText_);    
+                //activeEditor.document.replaceRange(text, activeEditor.getCursorPos());
             }
         }
         catch(err){alert("Error: "+err);}
