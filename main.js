@@ -20,16 +20,16 @@ define(function (require, exports, module)
             var $element = $(Mustache.render(QuickFormToolTemplate, Strings));
             
             $element.find(".qft-form").click(function () { quickFormTool("form"); });
-            $element.find(".qft-textfield").click(function () { quickFormTool("textfield"); });
-            $element.find(".qft-textarea").click(function () { quickFormTool("textarea"); });
             $element.find(".qft-button").click(function () { quickFormTool("button"); });
+            $element.find(".qft-textfield").click(function () { quickFormTool("textfield"); });
+            $element.find(".qft-filefield").click(function () { quickFormTool("filefield"); });
             $element.find(".qft-checkbox").click(function () { quickFormTool("checkbox"); });
             $element.find(".qft-radiobutton").click(function () { quickFormTool("radiobutton"); });
-            $element.find(".qft-listmenu").click(function () { quickFormTool("listmenu"); });
-            $element.find(".qft-imagebutton").click(function () { quickFormTool("imagebutton"); });
-            $element.find(".qft-imagefield").click(function () { quickFormTool("imagefield"); });
-            $element.find(".qft-filefield").click(function () { quickFormTool("filefield"); });
             $element.find(".qft-hiddenfield").click(function () { quickFormTool("hiddenfield"); });
+            $element.find(".qft-textarea").click(function () { quickFormTool("textarea"); });
+            $element.find(".qft-imagefield").click(function () { quickFormTool("imagefield"); });
+            $element.find(".qft-imagebutton").click(function () { quickFormTool("imagebutton"); });
+            $element.find(".qft-listmenu").click(function () { quickFormTool("listmenu"); });
 			$element.find(".qft-link").click(function () { quickFormTool("link"); });
 			
             $element.find(".qft-html5audio").click(function () { quickFormTool("html5audio"); });
@@ -39,10 +39,10 @@ define(function (require, exports, module)
 			$element.find(".qft-html5file").click(function () { quickFormTool("html5file"); });
 			$element.find(".qft-cssfile").click(function () { quickFormTool("cssfile"); });
 			$element.find(".qft-jsfile").click(function () { quickFormTool("jsfile"); });
+            
 			$element.find(".qftnotify").click(function () { $element.find(".qftblock").toggleClass("qftblock-exp");
                                                             $element.find(".qftnotify").toggleClass("qftnotify-exp"); });
 			$element.find(".qft-unpin").click(function () {$element.find(".qftblock").toggleClass("qftblock-exp");
-                                                           
                                                          $element.find(".qft-unpin").toggleClass("qft-pin"); });
 
             $($element).insertBefore("#editor-holder");
