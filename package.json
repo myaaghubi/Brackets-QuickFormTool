@@ -3,7 +3,7 @@
     "title": "QuickFormTool",
     "description": "Insert form elements quickly",
     "homepage": "https://github.com/mohammadyaghobi/Brackets-QuickFormTool",
-    "version": "2.6.0",
+    "version": "2.6.3",
     "author": "Mohammad Yaghobi <m.yaghobi.abc@gmail.com> (http://www.pgrammer.com)",
     "license": "MIT",
     "repository": {
@@ -11,7 +11,7 @@
         "url": "https://github.com/mohammadyaghobi/Brackets-QuickFormTool.git"
     },
     "engines": {
-        "brackets": ">=0.36.0"
+        "brackets": ">=0.44.0"
     },
     "keywords": [
         "form",
