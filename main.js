@@ -6,6 +6,7 @@ define(function (require, exports, module)
     ExtensionUtils           = brackets.getModule("utils/ExtensionUtils"),
     Strings                  = brackets.getModule("strings"),
 	DocumentManager          = brackets.getModule("document/DocumentManager"),
+    MainViewManager          = brackets.getModule("view/MainViewManager"),
     QuickFormToolTemplate    = require("text!ui/QuickFormToolTemplate.html");
     
 	var untitledhtml5index = 1;
@@ -161,18 +162,24 @@ define(function (require, exports, module)
     {
         try
         {
-            EditorManager.focusEditor();
-            var hosteditor = EditorManager.getFocusedEditor();
-            var line = hosteditor.document.getLine(hosteditor.getCursorPos().line);
-            
-            if (line.replace(/^\s+|\s+$/g, '').length>0)
-            {
-                var csIndent = line.match(/^\s{0,32}/)[0].length;
-                if (line.substr(hosteditor.getCursorPos().ch).length==0)
-                    commandString = "\n" + new Array(csIndent+1).join(' ') +commandString;
-            }
+            var activeEditor = EditorManager.getActiveEditor(),
+            activeDoc = activeEditor && activeEditor.document,
+            fileFullPath = activeDoc.file.fullPath,
+            fileFullName = fileFullPath.substring(fileFullPath.lastIndexOf("/") + 1), 
+            fileFormat = fileFullName.substring(fileFullName.lastIndexOf(".") + 1);
 
-            hosteditor.document.replaceRange(commandString, hosteditor.getCursorPos());
+            if (fileFormat == "html" || fileFormat == "htm")
+            {
+                var line = activeEditor.document.getLine(activeEditor.getCursorPos().line);
+                if (line.replace(/^\s+|\s+$/g, '').length>0)
+                {
+                    var csIndent = line.match(/^\s{0,32}/)[0].length;
+                    if (line.substr(activeEditor.getCursorPos().ch).length==0)
+                        commandString = "\n" + new Array(csIndent+1).join(' ') +commandString;
+                }
+
+                activeEditor.document.replaceRange(commandString, activeEditor.getCursorPos());
+            }
         }
         catch(err){}
     }
@@ -197,12 +204,17 @@ define(function (require, exports, module)
         catch(err){alert("Error: "+err);}
     }
 	//make new file. 
-    function handleFileNew(docName)
+    function handleFileNew(docname)
 	{
-        var doc_ = docName;
-        DocumentManager.setCurrentDocument(doc_);
-        EditorManager.focusEditor();
-        return new $.Deferred().resolve(doc_).promise();
+        try
+        {
+            var doc_ = docname;
+
+            MainViewManager._edit(MainViewManager.ACTIVE_PANE, doc_);
+            return new $.Deferred().resolve(doc_).promise();
+            
+        }
+        catch(err){alert("Error: "+err);}
     }
 	var html5page = "<!doctype html>\n<html>\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>Untitled Document</title>\n\t\n</head>\n<body>\n\t\n\t\n\t\n</body>\n</html>";
 	
