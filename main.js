@@ -7,6 +7,10 @@ define(function (require, exports, module)
     Strings                  = brackets.getModule("strings"),
 	DocumentManager          = brackets.getModule("document/DocumentManager"),
     MainViewManager          = brackets.getModule("view/MainViewManager"),
+    FileSystem               = brackets.getModule("filesystem/FileSystem"),
+    DocumentModule           = brackets.getModule("document/Document"),
+    InMemoryFile             = brackets.getModule("document/InMemoryFile"),
+    Editor                   = brackets.getModule("editor/Editor"),
     QuickFormToolTemplate    = require("text!ui/QuickFormToolTemplate.html");
     
 	var untitledhtml5index = 1;
@@ -63,27 +67,27 @@ define(function (require, exports, module)
                 switch (_class)
                 {
                     case "form":
-                        handleText("<form action=\"\" method=\"get\"></form>");
+                        handleText("<form action=\"\" method=\"post\"></form>");
                     break;
                     
                     case "textfield":
-                        handleText("<input type=\"text\" name=\"textfield\" size=\"25\" value=\"TextField\">");
+                        handleText("<input type=\"text\" name=\"textfield\" placeholder=\"TextField\">");
                     break;
                     
                     case "textarea":
-                        handleText("<textarea name=\"\" cols=\"25\" rows=\"5\">TextArea</textarea>");
+                        handleText("<textarea name=\"textarea\" placeholder=\"TextArea\"></textarea>");
                     break;
                     
                     case "button":
-                        handleText("<input type=\"button\" name=\"button\" value=\"Button\">");
+                        handleText("<input type=\"button\" name=\"button\">");
                     break;
                     
                     case "checkbox":
-                        handleText("<input type=\"checkbox\" name=\"checkbox\" value=\"CheckBox\">");
+                        handleText("<input type=\"checkbox\" name=\"checkbox\">");
                     break;
                     
                     case "radiobutton":
-                        handleText("<input type=\"radio\" name=\"radiogroup\" value=\"RadioButton\">");
+                        handleText("<input type=\"radio\" name=\"radio1\">");
                     break;
                     
                     case "listmenu":
@@ -91,7 +95,7 @@ define(function (require, exports, module)
                     break;
                     
                     case "imagebutton":
-                        handleText("<input type=\"image\" name=\"\" src=\"\" width=\"\" height=\"\">");
+                        handleText("<input type=\"image\" name=\"imageinput\" src=\"\" width=\"\" height=\"\">");
                     break;
                         
                     case "imagefield":
@@ -99,15 +103,15 @@ define(function (require, exports, module)
                     break;
                     
                     case "filefield":
-                        handleText("<input type=\"file\" name=\"filefield\">");
+                        handleText("<input type=\"file\" name=\"fileinput\">");
                     break;
                     
                     case "hiddenfield":
-                        handleText("<input type=\"hidden\" name=\"hiddenfield\" value=\"hiddenfieldvalue\">");
+                        handleText("<input type=\"hidden\" name=\"hiddeninput\" value=\"hiddeninputvalue\">");
                     break;
 					
 					case "link":
-                        handleText("<a href=\"\"></a>");
+                        handleText("<a href=\"\" target=\"_self\"></a>");
                     break;
                         
                     case "html5audio":
@@ -123,9 +127,7 @@ define(function (require, exports, module)
                     break;
 					
 					case "html5file":
-                        var doc = DocumentManager.createUntitledDocument(untitledhtml5index++, ".html");
-						handleFileNew(doc);	
-						handleText(html5page);
+                        makeHTML5File();
 					break;
 					
 					case "cssfile":
@@ -144,20 +146,30 @@ define(function (require, exports, module)
         }
     };
     
+    function makeHTML5File()
+    {
+        var doc = createUntitledDocument("Untitled-", untitledhtml5index++, ".html");
+        handleFileNew(doc);	
+        handleText("<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>Untitled Document</title>\n\t\n</head>\n<body>\n\t\n</body>\n</html>");
+        EditorManager.getActiveEditor().setCursorPos({ line: 8, pos: 0 });
+    }
+    
     function makeCSSFile()
     {
-        var doc = DocumentManager.createUntitledDocument(untitledcssindex, ".css");
-        handleTextToTag("<link rel=\"stylesheet\" href=\"Untitled-" + untitledcssindex++ + ".css\">", "head");
+        var doc = createUntitledDocument("css", untitledcssindex, ".css");
+        handleTextToTag("<link rel=\"stylesheet\" href=\"css" + untitledcssindex++ + ".css\">", "head");
         handleFileNew(doc);
         handleText("html\n{\n\t\n\}\n");	
     }
+    
     function makeJSFile()
     {
-        var doc = DocumentManager.createUntitledDocument(untitledjsindex, ".js");
-        handleText("<script type=\"javascript\" src=\"Untitled-" + untitledjsindex++ + ".js\" />");
+        var doc = createUntitledDocument("javascript", untitledjsindex, ".js");
+        handleText("<script type=\"javascript\" src=\"javascript" + untitledjsindex++ + ".js\" />");
         handleFileNew(doc);
         handleText("");	
     }
+    
     function handleText(commandString)
     {
         try
@@ -183,6 +195,7 @@ define(function (require, exports, module)
         }
         catch(err){}
     }
+    
     function handleTextToTag(text, tag)
     {
         try
@@ -203,6 +216,19 @@ define(function (require, exports, module)
         }
         catch(err){alert("Error: "+err);}
     }
+    
+    //make new document. used of document/DocumentManager -> createUntitledDocument()
+    function createUntitledDocument(filename, counter, fileExt) {
+        var fullfilename = filename + counter + fileExt,
+            fullPath = DocumentManager._untitledDocumentPath + "/" + fullfilename,
+            now = new Date(),
+            file = new InMemoryFile(fullPath, FileSystem);
+
+        FileSystem.addEntryForPathIfRequired(file, fullPath);
+
+        return new DocumentManager.Document(file, now, "");
+    }
+    
 	//make new file. 
     function handleFileNew(docname)
 	{
@@ -216,7 +242,6 @@ define(function (require, exports, module)
         }
         catch(err){alert("Error: "+err);}
     }
-	var html5page = "<!doctype html>\n<html>\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>Untitled Document</title>\n\t\n</head>\n<body>\n\t\n\t\n\t\n</body>\n</html>";
 	
     ExtensionUtils.loadStyleSheet(module, "ui/style.css");
     exports.quickFormToolProvider = quickFormToolProvider;
