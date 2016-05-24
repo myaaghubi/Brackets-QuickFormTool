@@ -180,7 +180,7 @@ define(function (require, exports, module)
             fileFullName = fileFullPath.substring(fileFullPath.lastIndexOf("/") + 1), 
             fileFormat = fileFullName.substring(fileFullName.lastIndexOf(".") + 1);
 
-            if (fileFormat == "html" || fileFormat == "htm")
+            if (fileFormat != "css")
             {
                 var line = activeEditor.document.getLine(activeEditor.getCursorPos().line);
                 if (line.replace(/^\s+|\s+$/g, '').length>0)
