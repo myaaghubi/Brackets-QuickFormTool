@@ -10,16 +10,6 @@ A:
 <br>
 
 1. Run Brackets.<br>
-2. Select _File > Extension Manager_<br>
-3. Enter `quickformtool` as _SearchBox_.<br>
-4. Click on _Install_ to begin downloading and installing the extension.<br>
-<br>
-<b>OR</b>
-
-B:
-<br>
-
-1. Run Brackets.<br>
 2. Select _File > Install Manager_<br>
 3. Click on _Install from URL..._.
 4. Enter `https://github.com/mohammadyaghobi/Brackets-QuickFormTool` as _Extension URL_.<br>
@@ -27,7 +17,7 @@ B:
 <br>
 <b>OR</b>
 
-C:
+B:
 <br>
 
 1. Click on `Download ZIP`.<br>
