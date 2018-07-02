@@ -206,16 +206,13 @@ define(function (require, exports, module)
       fileFullName = fileFullPath.substring(fileFullPath.lastIndexOf("/") + 1), 
       fileFormat = fileFullName.substring(fileFullName.lastIndexOf(".") + 1);
 
-      if (fileFormat == "html" || fileFormat == "htm")
-      {
-        EditorManager.getFocusedEditor();
-        var getDocumentText_ = activeEditor.document.getText().replace("</" + tag + ">", "\t" + text + "\n</" + tag + ">");
-        activeEditor.document.setText(getDocumentText_);    
-                //activeEditor.document.replaceRange(text, activeEditor.getCursorPos());
-              }
-            }
-            catch(err){alert("Error: "+err);}
-          }
+      EditorManager.getFocusedEditor();
+      var getDocumentText_ = activeEditor.document.getText().replace("</" + tag + ">", "\t" + text + "\n</" + tag + ">");
+      activeEditor.document.setText(getDocumentText_);    
+      //activeEditor.document.replaceRange(text, activeEditor.getCursorPos());
+    }
+    catch(err){alert("Error: "+err);}
+  }
 
     //make new document. used of document/DocumentManager -> createUntitledDocument()
     function createUntitledDocument(filename, counter, fileExt) {
