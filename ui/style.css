@@ -5,6 +5,7 @@
     height: 0px;
     overflow:visible;
     position: relative;
+    z-index: 1000;
     background-color:#47484b;
 }
 .qftmainblock-exp
