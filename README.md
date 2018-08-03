@@ -1,4 +1,5 @@
 # QuickFormTool # ver 2.7.3
+*This project is not maintained anymore. Please check out [Brackets Quick Form](https://github.com/myaghobi/Brackets-Quick-form) for issues or suggestions. *
 
 An extension for Adobe Brackets to insert form elements into editor quickly.<br>
 This extension now available for download.<br>
